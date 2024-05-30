@@ -28,10 +28,16 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.0'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.3'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'org.webjars:bootstrap:5.3.3'
+
 }
 
 tasks.named('bootBuildImage') {

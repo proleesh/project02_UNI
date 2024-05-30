@@ -1,1 +1,42 @@
-spring.application.name=project02
+spring:
+  application:
+    name: project02
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: smart01
+    password: smart01
+    url: jdbc:mariadb://localhost:3306/smart01db
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+server:
+  servlet:
+    jsp:
+      init-parameters:
+        developments: true
+
+# JSP trim spaces
+        trimSpaces: true
+# encoding for servlet and html
+    encoding:
+      force: true
+# MyBatis
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+
+
+# (1) cacheEnabled ===> default: true
+# All xml for mapper cache defined no limit
+# (2) jdbcTypeForNull ===> database field에 null 값을 넣을 때 사용한다.
+# ===> 부적절한 column의 유령 xxxx 오류가 발생한다.
+  configuration:
+    cache-enabled: false
+    jdbc-type-for-null: null
+    
