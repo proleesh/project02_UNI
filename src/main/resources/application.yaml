@@ -2,20 +2,28 @@ spring:
   application:
     name: project02
   datasource:
+    # 사용할 드라이브 이름: 여기서 mariadb를 사용
     driver-class-name: org.mariadb.jdbc.Driver
+    # 사용할 db의 user name
     username: smart01
+    # 사용할 db의 user password
     password: smart01
+    # 사용할 db의 url 주소
     url: jdbc:mariadb://localhost:3306/smart01db
+    # devtools 세팅 여기서 사용가능으로 세팅
   devtools:
     livereload:
       enabled: true
+      # 다시 시작을 가능하게 만듬
     restart:
       enabled: false
 
+# mvc가 스캔할 풀더를 지정하고, 해당 풀더의 확장자도 지정
   mvc:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+# servlet 설정
 server:
   servlet:
     jsp:
@@ -28,6 +36,7 @@ server:
     encoding:
       force: true
 # MyBatis
+# mapper할 경로
 mybatis:
   mapper-locations: classpath:mybatis/mapper/**/*.xml
 
