@@ -21,6 +21,30 @@ Implicit Object (내장 객체)
 또는 group을 definition하는
 [MyBatis]
 namespace는 DAO의 path를 써준다
+
+read (retrieve)
+1. 전체 학생정보 목록 조회
+2. 특정 학생정보 조회
+
+// Create
+3. 학생정보 입력
+
+// Update
+4. 학생정보 수정
+
+// Delete
+5. 학생정보 삭제
+
+[ 여름 방학 중에 반드시 학습할 내용 ]
+// JOIN table (Bulletin Board System)
+===> Pagenation
+===> 댓글 / 대댓글
+// Spring Security
+1. JWT(Json WEb Token)
+2. OAuth2 (Naver, Kakao, Google, Meta...)
+
+log framework
+
 --%>
 <div class="container">
     <%--    기말고사 Bootstrap의 class의 속성들을 학습하기--%>

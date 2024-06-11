@@ -35,6 +35,7 @@ server:
 # encoding for servlet and html
     encoding:
       force: true
+  port: 80
 # MyBatis
 # mapper할 경로
 mybatis:

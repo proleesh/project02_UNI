@@ -1,15 +1,15 @@
 package org.proleesh.project02.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.proleesh.project02.dao.StudentDAO;
 import org.proleesh.project02.dto.StudentDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@Slf4j
 @Controller // 해당 Controller를 명시하여 Spring 컨테이너에게 맞긴다.
 @RequestMapping("/student") // 매핑할 경로
 @RequiredArgsConstructor // Lombok 에서 제공한 주입 애너테이션
@@ -42,8 +42,33 @@ public class StudentController {
         // 이 이름에 해당하는 뷰가 렌더링되어 클라이언트에게 응답으로 전송됩니다.
         return "listStudents";
     }
-    // [2] 한 학생 목록 조회
-    // [3] 학생 목록 등록
+    // [2] 한 학생정보 조회
+
+
+    // [3] 학생 정보 등록
+    // [3 - 1] 학생 등록 폼(Form)
+    @GetMapping("/showForm")
+    public String showFormAdd(Model model){
+        StudentDTO student = new StudentDTO();
+        model.addAttribute("student", student);
+        return "studentForm";
+    }
+
+    // [3 - 2] 학생 등록 Action
+    @PostMapping("/saveStudent")
+    @ResponseBody
+    public String saveStudent(@RequestParam(required = false) String name,
+                              @RequestParam(required = false) String email,
+                              @RequestParam(required = false) String address
+                              ){
+        int result = studentDAO.addStudent(name, email, address);
+        if(result == 1) {
+            System.out.println("학생등록 성공!!!");
+                return "<script>alert('학생등록에 성공했습니다!!!'); window.location.href='/student/lists'; </script>";}
+
+        return "<script>alert('등록에 실패했습니다!!!'); window.location.href='/student/lists';</script>";
+    }
+
     // [4] 학생 정보 수정
     // [5] 학생 정보 삭제
 }

@@ -11,6 +11,9 @@
         select id ,name, email, address from student WHERE id = #{param1}
     </select>
 <!--    [3] 학생 목록 입력 SQL Mapper 작성 -->
+    <insert id="addStudent" parameterType="org.proleesh.project02.dto.StudentDTO">
+        insert into student (name, email, address) values (#{name}, #{email}, #{address})
+    </insert>
 <!--    [4] 학생 목록 정보 수정 SQL Mapper 작성 -->
 <!--    [5] 학생 목록 정보 삭제 SQL Mapper 작성 -->
 </mapper>
