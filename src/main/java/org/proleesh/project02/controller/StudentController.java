@@ -70,5 +70,38 @@ public class StudentController {
     }
 
     // [4] 학생 정보 수정
+    // [4 - 1] 한 학생 정보 수정 폼(form)
+    /*
+    @RequestParam("xxx"), xxx에 데이터베이스에 테이블의 colum 이름을 매핑하기위한 쓰는것이다.
+     */
+    @GetMapping("/updateForm")
+    public String updateForm(@RequestParam("studentId")int id, Model model){
+        StudentDTO student = studentDAO.getStudentById(id);
+        model.addAttribute("student", student);
+        return "updateStudentForm";
+    }
+    // [4 - 2] 한 학생 정보 수정 액션(action)
+    @PostMapping("/updateStudent")
+    @ResponseBody
+    public String updateStudent(@RequestParam(required = false) int id,
+                                @RequestParam(required = false) String name,
+                                @RequestParam(required = false) String email,
+                                @RequestParam(required = false) String address){
+        int result = studentDAO.updateStudent(id, name, email, address);
+        if(result == 1) {
+            System.out.println("수정 성공");
+            return "<script>alert('학생수정에 성공했습니다!!!'); window.location.href='/student/lists';</script>";}
+        return "<script>alert('학생수정에 실패했습니다!!!'); window.location.href='/student/lists';</script>";
+    }
     // [5] 학생 정보 삭제
+    @GetMapping("/deleteForm")
+    @ResponseBody
+    public String delete(@RequestParam("studentId") int id){
+        int result = studentDAO.deleteStudent(id);
+        if(result == 1) {
+            System.out.println("삭제 성공");
+            return "<script>alert('학생삭제에 성공했습니다!!!'); window.location.href='/student/lists';</script>";
+        }
+        return "<script>alert('학생삭제에 실패했습니다!!!'); window.location.href='/student/lists';</script>";
+    }
 }

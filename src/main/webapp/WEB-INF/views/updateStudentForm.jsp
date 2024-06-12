@@ -2,8 +2,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: sung-hyuklee
-  Date: 2024. 6. 11.
-  Time: 오후 2:17
+  Date: 2024. 6. 12.
+  Time: 오후 2:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>studentForm</title>
+    <title>listStudent</title>
     <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.css">
     <script src="/webjars/bootstrap/5.3.3/js/bootstrap.js"></script>
 </head>
@@ -23,13 +23,13 @@
         <h3 class="text-center">Spring Boot with MyBatis Project II</h3>
         <hr>
         <br>
-            <div class="card-header">
-                <div class="fs-2">학생등록</div>
-            </div>
+        <div class="card-header">
+            <div class="fs-2">학생수정</div>
+        </div>
         <br>
         <br>
         <div class="offcanvas-start">
-            <form:form action="saveStudent" method="POST" modelAttribute="student">
+            <form:form action="updateStudent" method="POST" modelAttribute="student">
                 <form:hidden path="id" />
                 <div class="mb-3">
                     <label for="name" class="col-md-3">이름</label>
@@ -53,7 +53,7 @@
                 <br />
                 <div class="mb-3">
                     <div class="col-md-3 col-9">
-                        <form:button class="btn btn-primary">등록</form:button>
+                        <form:button class="btn btn-primary">수정</form:button>
                     </div>
                 </div>
 

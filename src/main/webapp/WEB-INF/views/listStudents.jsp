@@ -62,6 +62,7 @@ log framework
                 <%--    기말고사 Bootstrap의 class의 속성들을 학습하기--%>
                 <div class="fs-2">학생목록</div>
             </div>
+            <br>
             <div class="card-body">
                 <table class="table table-striped table-bordered">
                     <tr>
