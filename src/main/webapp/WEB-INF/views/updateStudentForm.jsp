@@ -34,20 +34,22 @@
                 <div class="mb-3">
                     <label for="name" class="col-md-3">이름</label>
                     <div>
-                        <form:input path="name" class="form-control" />
+                        <form:input path="name" class="form-control" aria-describedby="nameHelp"/>
+                        <div id="nameHelp" class="form-text">수정할 이름을 입력하시오.</div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="col-md-3">이메일</label>
                     <div>
                         <form:input path="email" class="form-control" aria-describedby="emailHelp" />
-                        <div id="emailHelp" class="form-text">이메일을 입력하시오.</div>
+                        <div id="emailHelp" class="form-text">수정할 이메일을 입력하시오.</div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="address" class="col-md-3">주소</label>
                     <div>
-                        <form:input path="address" class="form-control"  />
+                        <form:input path="address" class="form-control" aria-describedby="addressHelp"/>
+                        <div id="addressHelp" class="form-text">수정할 주소를 입력하시오.</div>
                     </div>
                 </div>
                 <br />
