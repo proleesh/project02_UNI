@@ -19,6 +19,7 @@
 <body>
 <div class="container">
     <%--    기말고사 Bootstrap의 class의 속성들을 학습하기--%>
+<%--    해당 class에 있는 속성들은 bootstrap에서 제공해줍니다.--%>
     <div class="col-md-12">
         <h3 class="text-center">Spring Boot with MyBatis Project II</h3>
         <hr>

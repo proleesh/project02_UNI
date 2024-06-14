@@ -28,6 +28,7 @@
         </div>
         <br>
         <br>
+<%--        해당 클래스에 있는 내용은 bootstrap에서 제공을 함. 스타일링해주는 속성입니다.--%>
         <div class="offcanvas-start">
             <form:form action="updateStudent" method="POST" modelAttribute="student">
                 <form:hidden path="id" />
