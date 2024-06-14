@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.proleesh.project02.dto.StudentDTO;
 
 import java.util.List;
-@Mapper
+@Mapper // MyBatis 의 xml 매칭시 필수 사용 annotation
 public interface StudentDAO {
     // [1] 전채 학생 목록 조회
     public List<StudentDTO> getAllStudents();

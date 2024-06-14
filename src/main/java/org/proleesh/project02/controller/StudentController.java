@@ -57,15 +57,18 @@ public class StudentController {
     // [3 - 2] 학생 등록 Action
     @PostMapping("/saveStudent")
     @ResponseBody
-    public String saveStudent(@RequestParam(required = false) String name,
-                              @RequestParam(required = false) String email,
-                              @RequestParam(required = false) String address
+    public String saveStudent(@RequestParam(required = false) String name, // HTTP 요청 파라미터를 name 라는 값을 매칭한다.
+                              @RequestParam(required = false) String email, // HTTP 요청 파라미터를 email 라는 값을 매칭한다.
+                              @RequestParam(required = false) String address // HTTP 요청 파라미터를 address 라는 값을 매칭한다.
                               ){
-        int result = studentDAO.addStudent(name, email, address);
-        if(result == 1) {
-            System.out.println("학생등록 성공!!!");
-                return "<script>alert('학생등록에 성공했습니다!!!'); window.location.href='/student/lists'; </script>";}
+        int result = studentDAO.addStudent(name, email, address); // DAO(Data Access Object) 에서 addStudent 메서드를 통해 값을 전달
+        if(result == 1) { // 만약에 result = 1 이면 다음 조건문을 실행
+            System.out.println("학생등록 성공!!!"); // 콘솔창에서 확인 메시지 내용은: 학생등록 성공!!
+            // 해당 스크립트를 리턴
+            return "<script>alert('학생등록에 성공했습니다!!!'); window.location.href='/student/lists'; </script>";
+        }
 
+        // 해당 스크립트를 리턴
         return "<script>alert('등록에 실패했습니다!!!'); window.location.href='/student/lists';</script>";
     }
 
@@ -80,13 +83,26 @@ public class StudentController {
         model.addAttribute("student", student);
         return "updateStudentForm";
     }
+
+    /*
+    @RequestParam 는 뭐죠?
+    Spring MVC 컨트롤러 메서드에서 요청 매개 변수를 메서드 인수에 매핑하는 데 사용되는 어노테이션입니다. 웹 양식이나 URL 쿼리 문자열과 같은
+    클라이언트로부터 전송된 HTTP 요청 매개 변수와 일치하는 메서드 매개 변수에 배치됩니다.
+    required = false 는 뭐죠?
+    @RequestParam 어노테이션의 required 속성은 해당 요청 매개 변수가 필수인지 선택 사항인지 지정합니다. 기본적으로 required 는 true 로
+    설정되어 있으며, 요청에서 누락되면 예외가 발생합니다.
+    required = false 는 언제 쓰죠?
+    요청 매개 변수가 항상 필요하지 않거나 매개 변수가 누락된 경우를 우아하게 처리하려는 경우 required=false 를 사용해야 합니다.
+    예를 들어, 선택 필터 또는 기본값을 가진 매개 변수에 required = false 를 사용할 수 있습니다.
+     */
     // [4 - 2] 한 학생 정보 수정 액션(action)
     @PostMapping("/updateStudent")
     @ResponseBody
-    public String updateStudent(@RequestParam(required = false) int id,
-                                @RequestParam(required = false) String name,
-                                @RequestParam(required = false) String email,
-                                @RequestParam(required = false) String address){
+    public String updateStudent(@RequestParam(required = false) int id, // HTTP 요청 파라미터를 id 라는 값을 매칭한다.
+                                @RequestParam(required = false) String name, // HTTP 요청 파라미터를 name 라는 값을 매칭한다.
+                                @RequestParam(required = false) String email, // HTTP 요청 파라미터를 email 라는 값을 매칭한다.
+                                @RequestParam(required = false) String address) // HTTP 요청 파라미터를 address 라는 값을 매칭한다.
+    {
         int result = studentDAO.updateStudent(id, name, email, address);
         if(result == 1) {
             System.out.println("수정 성공");
